@@ -3,8 +3,8 @@
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
-  return knex.schema.createTable("filmes", (table) => {
-    tabrle.dropColumn("genero_id")
+  return knex.schema.table("filmes", (table) => {
+    table.dropColumn("genero_id")
   })
 };
 
@@ -16,4 +16,9 @@ exports.down = function(knex) {
   return knex.schema.table("filmes", (table) => {
     table.integer("genero_id")
   })
+
+  exports.config = {
+    transaction: false
+  }
+    
 };

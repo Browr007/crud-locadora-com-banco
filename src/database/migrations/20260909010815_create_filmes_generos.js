@@ -13,7 +13,7 @@ exports.up = function(knex) {
     .inTable("filmes")
     .onDelete("CASCADE")
 
-     table.integer("filme_id")
+     table.integer("genero_id")
     .unsigned()
     .notNullable()
     .references("id")
@@ -28,5 +28,6 @@ exports.up = function(knex) {
  * @returns { Promise<void> }
  */
 exports.down = function(knex) {
+  return knex.schema.dropTable("Filmes_generos")
   
 };
